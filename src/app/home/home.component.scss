@@ -1,0 +1,33 @@
+.container {
+    height: 200vh; /* To ensure there's enough space to scroll */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .fade-up, .rotate, .scale {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4caf50;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
+  
+  .fade-up {
+    background-color: #ff5722;
+  }
+  
+  .rotate {
+    background-color: #2196f3;
+  }
+  
+  .scale {
+    background-color: #ffc107;
+  }
+  
