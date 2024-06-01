@@ -1,5 +1,44 @@
-<div class="container">
-    <div class="fade-up">Fade up animation</div>
-    <div class="rotate">Rotate animation</div>
-    <div class="scale">Scale animation</div>
-  </div>
+<div class="theme1">
+
+    <div class="hangman-container">
+        <div class="hangman-word">
+            <span *ngFor="let letter of displayedWord" [attr.data-letter]="letter === ' ' ? 'space' : letter">{{ letter
+                === ' ' ? '\xa0' : letter }}</span>
+        </div>
+        <p>Description: {{ word.description }}</p>
+        <div class="hangman-letters">
+            <button *ngFor="let letter of alphabet" (click)="guessLetter(letter)"
+                [disabled]="guessedLetters.includes(letter)">
+                {{ letter }}
+            </button>
+        </div>
+        <div class="hangman-figure">
+            <svg height="250" width="200" class="figure-container">
+                <!-- Rod -->
+                <line x1="60" y1="20" x2="140" y2="20" />
+                <line x1="140" y1="20" x2="140" y2="50" />
+                <line x1="60" y1="20" x2="60" y2="230" />
+                <line x1="20" y1="230" x2="100" y2="230" />
+
+                <!-- Head -->
+                <circle cx="140" cy="70" r="20" class="figure-part" />
+
+                <!-- Body -->
+                <line x1="140" y1="90" x2="140" y2="150" class="figure-part" />
+
+                <!-- Arms -->
+                <line x1="140" y1="120" x2="120" y2="100" class="figure-part" />
+                <line x1="140" y1="120" x2="160" y2="100" class="figure-part" />
+
+                <!-- Legs -->
+                <line x1="140" y1="150" x2="120" y2="180" class="figure-part" />
+                <line x1="140" y1="150" x2="160" y2="180" class="figure-part" />
+            </svg>
+        </div>
+        <div class="hangman-status">
+            <p *ngIf="gameStatus === 'won'">Congratulations! You've won {{ word.points }} points!</p>
+            <p *ngIf="gameStatus === 'lost'">Game over! The word was "{{ word.word }}"</p>
+        </div>
+    </div>
+
+</div>
